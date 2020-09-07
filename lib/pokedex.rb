@@ -39,27 +39,22 @@ class Pokedex
 
     def self.find_by_name
         input = gets.chomp
-        self.all.find_all {|pokemon| pokemon.name == input}
+        # binding.pry
+        self.all.find_all {|pokemon| pokemon.name == input}.each do |pokemon|
+            puts "----------------------"
+            puts "Name: #{pokemon.name}"
+            puts "Pokedex ID: #{pokemon.id}"
+            puts "Type(s): #{pokemon.type}"
+            puts "Form: #{pokemon.form}"
+            puts "----------------------"
+        end
+        
     end
 
-    # binding.pry
+    def self.find_by_id
+        input = gets.chomp.to_i
+        self.all.find_all {|pokemon| pokemon.id == input}
+    end
+
     
 end
-Pokedex.create
-# Pokedex.find_by_name
-binding.pry
-
-#     @@all = []
-
-#     def get_pokemon
-#         @@all << parsed_pokemon.find("pokemon_name")
-#         binding.pry
-#     end
-
-#     def self.all
-#         @@all
-#     end
-#     binding.pry
-# end
-
-# puts Pokedex.all
