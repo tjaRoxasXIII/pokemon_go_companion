@@ -2,16 +2,16 @@ require 'pry'
 require_relative 'pokemon_info_importer.rb'
 class Pokedex
 
-    pokedex = []
+    @pokedex = []
 
     Importer.parsed_pokemon.each do |pokemon|
         # binding.pry
-        pokedex << pokemon.transform_keys(&:to_sym)
+        @pokedex << pokemon.transform_keys(&:to_sym)
     end
-    pokedex = pokedex.delete_if {|pokemon| pokemon[:form] == "Purified" || pokemon[:form] == "Shadow"}
-    pokedex = pokedex.sort_by {|pokemon| pokemon[:form]}
+    @pokedex = @pokedex.delete_if {|pokemon| pokemon[:form] == "Purified" || pokemon[:form] == "Shadow"}
+    @pokedex = @pokedex.sort_by {|pokemon| pokemon[:form]}
 
-    attr_accessor :name, :id, :type, :form
+    attr_accessor :pokedex, :name, :id, :type, :form
 
     @@all = []
 
@@ -27,8 +27,8 @@ class Pokedex
         @@all
     end
 
-    def self.create(pokedex)
-        pokedex.each do |pokemon|
+    def self.create(input = @pokedex)
+        input.each do |pokemon|
             name = pokemon[:pokemon_name]
             id = pokemon[:pokemon_id]
             type = pokemon[:type]
@@ -36,9 +36,18 @@ class Pokedex
             Pokedex.new(name, id, type, form)
         end
     end
-    binding.pry
-end
 
+    def self.find_by_name
+        input = gets.chomp
+        self.all.find_all {|pokemon| pokemon.name == input}
+    end
+
+    # binding.pry
+    
+end
+Pokedex.create
+# Pokedex.find_by_name
+binding.pry
 
 #     @@all = []
 
