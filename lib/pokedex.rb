@@ -53,7 +53,27 @@ class Pokedex
 
     def self.find_by_id
         input = gets.chomp.to_i
-        self.all.find_all {|pokemon| pokemon.id == input}
+        self.all.find_all {|pokemon| pokemon.id == input}.each do |pokemon|
+            puts "----------------------"
+            puts "Name: #{pokemon.name}"
+            puts "Pokedex ID: #{pokemon.id}"
+            puts "Type(s): #{pokemon.type}"
+            puts "Form: #{pokemon.form}"
+            puts "----------------------"
+        end
+    end
+
+    def self.find_by_type
+        input = gets.chomp
+        self.all.find_all {|pokemon| pokemon.type.include?(input)}.each do |pokemon|
+            puts "----------------------"
+            puts "Name: #{pokemon.name}"
+            puts "Pokedex ID: #{pokemon.id}"
+            puts "Type(s): #{pokemon.type}"
+            puts "Form: #{pokemon.form}"
+            puts "----------------------"
+        end
+
     end
 
     
