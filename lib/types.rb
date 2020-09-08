@@ -14,7 +14,7 @@ class Types
     def initialize(type_name, weakness, strength)
             @type_name = type_name
             @weakness = weakness
-            @strengths = strength 
+            @strength = strength 
             @@types_all << self
     end
     
@@ -33,6 +33,13 @@ class Types
             end
             Types.new(type_name, weakness, strength)
         end
+    end
+
+    def self.find_str_or_wkns(type1, type2 = nil)
+        # binding.pry
+        pkmn_type = @@types_all.find {|type| type.type_name == type1}
+            puts "Weak to: #{pkmn_type.weakness}"
+            puts "Strong against: #{pkmn_type.strength}"
     end
 
     # binding.pry
