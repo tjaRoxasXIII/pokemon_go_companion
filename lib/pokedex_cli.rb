@@ -24,17 +24,17 @@ class PokedexCLI
 
         if input == "1"
             name_search
-            exit_search
+            call
         end
 
         if input == "2"
             id_search
-            exit_search
+            call
         end
 
         if input == "3"
             type_search
-            exit_search
+            call
         end
 
         if input == "4"
@@ -50,22 +50,22 @@ class PokedexCLI
     def name_search
         puts "Please enter a name:"
         Pokedex.find_by_name
-        search_again
+        search_again_by_name
     end
 
     def id_search
         puts "Please enter a Pokedex ID number:"
         Pokedex.find_by_id
-        search_again
+        search_again_by_id
     end
 
     def type_search
         puts "Please enter a Pokemon Type:"
         Pokedex.find_by_type
-        search_again
+        search_again_by_type
     end
 
-    def search_again
+    def search_again_by_name
         puts "Would you like to search for another Pokemon? Y/N:"
         input = gets.chomp.upcase
         if input == "Y"
@@ -76,15 +76,27 @@ class PokedexCLI
         end
     end
 
-    def exit_search
-        puts "Type 'return' to go back, or 'quit' to quit."
-        input = gets.chomp
-        if input == "return"
-            self.call
+    def search_again_by_id
+        puts "Would you like to search for another Pokemon? Y/N:"
+        input = gets.chomp.upcase
+        if input == "Y"
+            id_search
         end
-        if input == "quit"
-            puts "See you next time!"
+        if input == "N"
+            puts "Alright, let's try something else!"
         end
+        
     end
 
+    def search_again_by_type
+        puts "Would you like to search for another Type? Y/N:"
+        input = gets.chomp.upcase
+        if input == "Y"
+            type_search
+        end
+        if input == "N"
+            puts "Alright, let's try something else!"
+        end
+    end
+        
 end

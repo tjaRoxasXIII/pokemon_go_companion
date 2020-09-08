@@ -2,22 +2,38 @@
 # require_relative './pokemon_info_importer.rb'
 class Types
 
-    attr_accessor :type_name, :weakness, :strength
+    attr_accessor :type_list, :type_name, :weakness, :strength
 
-    @@types = []
+    @@types_all = []
+    @type_list = []
 
-    def initialize(build_types)
-            @type_name = type[0]
-            @weakness = []
-            @strengths = []
-            @@types << self
+    Importer.new.pokedex_types.each do |type|
+        @type_list << type
     end
     
-    # def build_types
-    #     Importer.parsed_types.each do |type|
-    #     end
-    # end
+    def initialize(type_name, weakness, strength)
+            @type_name = type_name
+            @weakness = weakness
+            @strengths = strength 
+            @@types_all << self
+    end
     
+    def self.create(input = @type_list)
+        input.each do |type|
+            weakness = []
+            strength = []
+            type_name = type[0] 
+            type[1].each do |power|
+                if power[1] < 1.0
+                    weakness << power[0]
+                end
+                if power[1] > 1.0
+                    strength << power[0]
+                end
+            end
+            Types.new(type_name, weakness, strength)
+        end
+    end
 
     # binding.pry
     #=> Will recieve types from pokedex by calling a specific pokemon.  Based on type(s) returned, compare strengths and weaknesses and return.

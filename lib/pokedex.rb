@@ -5,7 +5,6 @@ class Pokedex
     @pokedex = []
 
     Importer.new.pokedex_list.each do |pokemon|
-        # binding.pry
         @pokedex << pokemon.transform_keys(&:to_sym)
     end
     @pokedex = @pokedex.delete_if {|pokemon| pokemon[:form] == "Purified" || pokemon[:form] == "Shadow"}
@@ -38,7 +37,7 @@ class Pokedex
     end
 
     def self.find_by_name
-        input = gets.chomp
+        input = gets.chomp.capitalize
         # binding.pry
         self.all.find_all {|pokemon| pokemon.name == input}.each do |pokemon|
             puts "----------------------"
@@ -64,7 +63,7 @@ class Pokedex
     end
 
     def self.find_by_type
-        input = gets.chomp
+        input = gets.chomp.capitalize
         self.all.find_all {|pokemon| pokemon.type.include?(input)}.each do |pokemon|
             puts "----------------------"
             puts "Name: #{pokemon.name}"
