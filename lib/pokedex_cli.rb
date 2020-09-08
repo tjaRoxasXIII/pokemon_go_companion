@@ -1,4 +1,4 @@
-require "./lib/pokedex.rb"
+# require "./lib/pokedex.rb"
 class PokedexCLI
 
     attr_accessor :pokedex
@@ -34,9 +34,9 @@ class PokedexCLI
             puts "Please enter a Pokemon Type:"
             Pokedex.find_by_type
             puts "You can search for another Pokemon type, type 'return' to go back, or 'quit' to quit."
-            input = gets
+            input = gets.chomp
             if input == "return"
-                call
+                self.call
             end
             if input == "quit"
                 puts "See you next time!"
@@ -54,5 +54,3 @@ class PokedexCLI
     end
 
 end
-
-PokedexCLI.new.call

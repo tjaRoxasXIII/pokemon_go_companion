@@ -1,10 +1,10 @@
-require 'pry'
-require_relative 'pokemon_info_importer.rb'
+# require 'pry'
+
 class Pokedex
 
     @pokedex = []
 
-    Importer.parsed_pokemon.each do |pokemon|
+    Importer.new.pokedex_list.each do |pokemon|
         # binding.pry
         @pokedex << pokemon.transform_keys(&:to_sym)
     end
