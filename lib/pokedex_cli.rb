@@ -26,25 +26,19 @@ class PokedexCLI
         if input == "1"
             name_search
             call
-        end
-
-        if input == "2"
+        elsif input == "2"
             id_search
             call
-        end
-
-        if input == "3"
+        elsif input == "3"
             type_search
             call
-        end
-
-        if input == "4"
+        elsif input == "4"
             type_compare
             call
-        end
-
-        if input == "quit"
+        elsif input == "quit"
             puts "See you next time!"
+        else
+            call
         end
         
     end
