@@ -1,8 +1,6 @@
 # PokemonGoCompanion
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pokemon_go_companion`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This app is designed as a companion to the Pokemon Go mobile app.  It can help you learn basic information about specific characters from the game by searching their name, number, or type.  It also provides insight on individual types and their accompanying strengths and weaknesses.
 
 ## Installation
 

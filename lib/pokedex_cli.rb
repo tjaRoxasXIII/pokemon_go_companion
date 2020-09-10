@@ -78,8 +78,7 @@ class PokedexCLI
         input = gets.chomp.upcase
         if input == "Y"
             name_search
-        end
-        if input == "N"
+        elsif input == "N"
             puts "Alright, let's try something else!"
         end
     end
@@ -89,8 +88,7 @@ class PokedexCLI
         input = gets.chomp.upcase
         if input == "Y"
             id_search
-        end
-        if input == "N"
+        elsif input == "N"
             puts "Alright, let's try something else!"
         end
         
@@ -101,8 +99,7 @@ class PokedexCLI
         input = gets.chomp.upcase
         if input == "Y"
             type_search
-        end
-        if input == "N"
+        elsif input == "N"
             puts "Alright, let's try something else!"
         end
     end
@@ -112,8 +109,7 @@ class PokedexCLI
         input = gets.chomp.upcase
         if input == "Y"
             type_compare
-        end
-        if input == "N"
+        elsif input == "N"
             puts "Alright, let's try something else!"
         end
     end
