@@ -1,8 +1,8 @@
-require 'pry'
-require 'uri'
-require 'net/http'
-require 'openssl'
-require 'json'
+# require 'pry'
+# require 'uri'
+# require 'net/http'
+# require 'openssl'
+# require 'json'
 class Importer
 
     attr_accessor :pokedex_list, :pokedex_types

@@ -14,7 +14,7 @@ class PokedexCLI
     end
     
     def call
-        puts "Please choose from the following:"
+        puts "Please choose from the following (1-4):"
         puts "  1. Find a Pokemon by name"
         puts "  2. Find a Pokemon by their Pokedex number"
         puts "  3. Find a Pokemon by type"
