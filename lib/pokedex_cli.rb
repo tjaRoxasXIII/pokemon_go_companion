@@ -48,19 +48,28 @@ class PokedexCLI
     def name_search
         puts "Please enter a name:"
         Pokedex.find_by_name
-        search_again_by_name
+        if search_again?
+            name_search
+        else
+        end
     end
 
     def id_search
         puts "Please enter a Pokedex ID number:"
         Pokedex.find_by_id
-        search_again_by_id
+        if search_again?
+            id_search
+        else
+        end
     end
 
     def type_search
         puts "Please enter a Pokemon Type:"
         Pokedex.find_by_type
-        search_again_by_type
+        if search_again?
+            type_search
+        else
+        end
     end
 
     def type_compare
@@ -70,48 +79,52 @@ class PokedexCLI
         puts "-------------------------"
         Types.find_str_or_wkns(input)
         puts "-------------------------"
-        search_new_type
-    end
-
-    def search_again_by_name
-        puts "Would you like to search for another Pokemon? Y/N:"
-        input = gets.chomp.upcase
-        if input == "Y"
-            name_search
-        elsif input == "N"
-            puts "Alright, let's try something else!"
-        end
-    end
-
-    def search_again_by_id
-        puts "Would you like to search for another Pokemon? Y/N:"
-        input = gets.chomp.upcase
-        if input == "Y"
-            id_search
-        elsif input == "N"
-            puts "Alright, let's try something else!"
-        end
-        
-    end
-
-    def search_again_by_type
-        puts "Would you like to search for another Type? Y/N:"
-        input = gets.chomp.upcase
-        if input == "Y"
-            type_search
-        elsif input == "N"
-            puts "Alright, let's try something else!"
-        end
-    end
-
-    def search_new_type
-        puts "Would you like to search for another Type? Y/N:"
-        input = gets.chomp.upcase
-        if input == "Y"
+        if search_again?
             type_compare
+        else
+        end
+    end
+
+    def search_again?
+        puts "Would you like to search again? Y/N:"
+        input = gets.chomp.upcase
+        if input == "Y"
+            return true
         elsif input == "N"
             puts "Alright, let's try something else!"
         end
     end
+
+    # def search_again_by_name
+    #     search_again?(self.name_search)
+    # end
+
+    # def search_again_by_id
+    #     search_again?
+    #     if input == "Y"
+    #         id_search
+    #     elsif input == "N"
+    #         puts "Alright, let's try something else!"
+    #     end
+        
+    # end
+
+    # def search_again_by_type
+    #     search_again?
+    #     if input == "Y"
+    #         type_search
+    #     elsif input == "N"
+    #         puts "Alright, let's try something else!"
+    #     end
+    # end
+
+    # def search_new_type
+    #     search_again?
+    #     if input == "Y"
+    #         type_compare
+    #     elsif input == "N"
+    #         puts "Alright, let's try something else!"
+    #     end
+    # end
         
 end

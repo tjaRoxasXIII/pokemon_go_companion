@@ -41,12 +41,11 @@ class Types
             pkmn_type = @@types_all.find {|type| type.type_name == type1}
                 puts "Weak/Ineffective against: #{pkmn_type.weakness}"
                 puts "Strong against: #{pkmn_type.strength}"
-        else
-            pkmn_type1 = @@types_all.find {|type| type.type_name == type1}
-            pkmn_type2 = @@types_all.find {|type| type.type_name == type2}
-            # binding.pry
-            pkmn_type1.weakness.delete_if {|type| pkmn_type2.strength.include?(type) && !pkmn_type2.weakness.include?(type)}
-            # binding.pry
+    #=> Additional logic needed to allow functionality of next feature
+        # else
+        #     pkmn_type1 = @@types_all.find {|type| type.type_name == type1}
+        #     pkmn_type2 = @@types_all.find {|type| type.type_name == type2}
+        #     pkmn_type1.weakness.delete_if {|type| pkmn_type2.strength.include?(type) && !pkmn_type2.weakness.include?(type)}
         end
     end
 end

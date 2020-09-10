@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To run this file starting from the main pokemon_go_companion directory, just type 'ruby ./bin/console' and the application will begin.
 
 ## Development
 
