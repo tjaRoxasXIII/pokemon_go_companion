@@ -94,37 +94,5 @@ class PokedexCLI
             puts "Alright, let's try something else!"
         end
     end
-
-    # def search_again_by_name
-    #     search_again?(self.name_search)
-    # end
-
-    # def search_again_by_id
-    #     search_again?
-    #     if input == "Y"
-    #         id_search
-    #     elsif input == "N"
-    #         puts "Alright, let's try something else!"
-    #     end
-        
-    # end
-
-    # def search_again_by_type
-    #     search_again?
-    #     if input == "Y"
-    #         type_search
-    #     elsif input == "N"
-    #         puts "Alright, let's try something else!"
-    #     end
-    # end
-
-    # def search_new_type
-    #     search_again?
-    #     if input == "Y"
-    #         type_compare
-    #     elsif input == "N"
-    #         puts "Alright, let's try something else!"
-    #     end
-    # end
         
 end
