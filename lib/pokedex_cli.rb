@@ -92,6 +92,8 @@ class PokedexCLI
             return true
         elsif input == "N"
             puts "Alright, let's try something else!"
+        else
+            search_again?
         end
     end
         

@@ -17,6 +17,10 @@ class Types
             @strength = strength 
             @@types_all << self
     end
+
+    def self.all
+        @@types_all
+    end
     
     def self.create(input = @type_list)
         input.each do |type|
@@ -47,5 +51,6 @@ class Types
         #     pkmn_type2 = @@types_all.find {|type| type.type_name == type2}
         #     pkmn_type1.weakness.delete_if {|type| pkmn_type2.strength.include?(type) && !pkmn_type2.weakness.include?(type)}
         end
+        type1
     end
 end
