@@ -77,15 +77,10 @@ class Importer
             end
             Type.new(type_name, weakness, strength)
         end
-        @pokemon_types = @type_list
     end
 
     def self.pokemon
         @pokemon_list
-    end
-
-    def self.pokemon_types
-        @pokemon_types
     end
     
 end
