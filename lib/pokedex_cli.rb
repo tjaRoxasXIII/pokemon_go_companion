@@ -1,11 +1,8 @@
 # require "./lib/pokedex.rb"
 class PokedexCLI
 
-    attr_accessor :pokedex
-
     def initialize
-        Pokedex.create
-        Types.create
+        Importer.new
         puts "  _---_                          _---_  "
         puts " |--0--|  Pokemon Go Companion  |--0--| "
         puts "  ¯---¯                          ¯---¯  "
@@ -21,33 +18,31 @@ class PokedexCLI
         puts "  4. Search type comparisons"
         puts "  To quit, type 'quit'."
         puts "Please enter your choice:"
-        input = gets.chomp
+        case gets.chomp
 
-        if input == "1"
+        when "1"
             name_search
             call
-        elsif input == "2"
+        when "2"
             id_search
             call
-        elsif input == "3"
+        when "3"
             type_search
             call
-        elsif input == "4"
+        when "4"
             type_compare
             call
-        elsif input == "quit"
+        when "quit"
             puts "See you next time!"
         else
             call
         end
         
     end
-
-
     
     def name_search
         puts "Please enter a name:"
-        Pokedex.find_by_name
+        Pokemon.find_by_name
         if search_again?
             name_search
         else
@@ -56,7 +51,7 @@ class PokedexCLI
 
     def id_search
         puts "Please enter a Pokedex ID number:"
-        Pokedex.find_by_id
+        Pokemon.find_by_id
         if search_again?
             id_search
         else
@@ -65,7 +60,7 @@ class PokedexCLI
 
     def type_search
         puts "Please enter a Pokemon Type:"
-        Pokedex.find_by_type
+        Pokemon.find_by_type
         if search_again?
             type_search
         else
@@ -77,7 +72,7 @@ class PokedexCLI
         input = gets.chomp.capitalize
         puts "#{input} Type Pokemon are"
         puts "-------------------------"
-        Types.find_str_or_wkns(input)
+        Type.find_str_or_wkns(input)
         puts "-------------------------"
         if search_again?
             type_compare

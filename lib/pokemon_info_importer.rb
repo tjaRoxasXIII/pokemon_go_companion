@@ -5,16 +5,14 @@
 # require 'json'
 class Importer
 
-    attr_accessor :pokedex_list, :pokedex_types
+    attr_accessor :pokemon_list, :pokemon_types
 
     @@responses = []
 
     def initialize
         get_api_key
-        pull_from_api(URI("https://pokemon-go1.p.rapidapi.com/pokemon_types.json"))
-        @pokedex_list = @@responses[0]
-        pull_from_api(URI("https://pokemon-go1.p.rapidapi.com/type_effectiveness.json"))
-        @pokedex_types = @@responses[1]
+        create_pokemon
+        create_types
     end
     
     def pull_from_api(url)
@@ -46,12 +44,48 @@ class Importer
         @@key
     end
 
-    def self.pokedex_list
-        @pokedex_list
+    def create_pokemon
+        @pokemon_list = []
+        pull_from_api(URI("https://pokemon-go1.p.rapidapi.com/pokemon_types.json"))
+        @@responses[0].each do |pokemon|
+            name = pokemon["pokemon_name"]
+            id = pokemon["pokemon_id"]
+            type = pokemon["type"]
+            form = pokemon["form"]
+            if pokemon["form"] != "Purified" && pokemon["form"] != "Shadow"
+                Pokemon.new(name, id, type, form)
+            end
+        end
+        @pokemon_list = @pokemon_list.sort_by {|pokemon| pokemon[:form]}
+        self.pokemon_list = @pokemon_list
     end
 
-    def self.pokedex_types
-        @pokedex_types
+    def create_types
+        @type_list = []
+        pull_from_api(URI("https://pokemon-go1.p.rapidapi.com/type_effectiveness.json"))
+        @@responses[1].each do |type|
+            weakness = []
+            strength = []
+            type_name = type[0] 
+            type[1].each do |power|
+                if power[1] < 1.0
+                    weakness << power[0]
+                end
+                if power[1] > 1.0
+                    strength << power[0]
+                end
+            end
+            Type.new(type_name, weakness, strength)
+        end
+        @pokemon_types = @type_list
+    end
+
+    def self.pokemon
+        @pokemon_list
+    end
+
+    def self.pokemon_types
+        @pokemon_types
     end
     
 end

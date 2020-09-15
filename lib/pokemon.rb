@@ -1,12 +1,4 @@
-class Pokedex
-
-    @pokedex = []
-
-    Importer.new.pokedex_list.each do |pokemon|
-        @pokedex << pokemon.transform_keys(&:to_sym)
-    end
-    @pokedex = @pokedex.delete_if {|pokemon| pokemon[:form] == "Purified" || pokemon[:form] == "Shadow"}
-    @pokedex = @pokedex.sort_by {|pokemon| pokemon[:form]}
+class Pokemon
 
     attr_accessor :pokedex, :name, :id, :type, :form
 
@@ -24,19 +16,12 @@ class Pokedex
         @@all
     end
 
-    def self.create(input = @pokedex)
-        input.each do |pokemon|
-            name = pokemon[:pokemon_name]
-            id = pokemon[:pokemon_id]
-            type = pokemon[:type]
-            form = pokemon[:form]
-            Pokedex.new(name, id, type, form)
-        end
+    def self.sort_by_name
+        @@all.sort_by {|pokemon| pokemon.name}
     end
 
     def self.find_by_name
         input = gets.chomp.capitalize
-        # binding.pry
         self.all.find_all {|pokemon| pokemon.name == input}.each do |pokemon|
             puts "----------------------"
             puts "Name: #{pokemon.name}"

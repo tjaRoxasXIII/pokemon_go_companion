@@ -8,8 +8,8 @@ require 'bundler/setup'
 # require "pokemon_go_companion"
 require_relative '../lib/pokemon_info_importer.rb'
 require_relative '../lib/pokedex_cli.rb'
-require_relative '../lib/pokedex.rb'
-require_relative '../lib/types.rb'
+require_relative '../lib/pokemon.rb'
+require_relative '../lib/type.rb'
 
 
 # You can add fixtures and/or initialization code here to make experimenting
