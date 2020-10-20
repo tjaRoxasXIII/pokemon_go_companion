@@ -5,6 +5,7 @@ require 'net/http'
 require 'openssl'
 require 'json'
 require 'bundler/setup'
+require 'colorize'
 # require "pokemon_go_companion"
 require_relative '../lib/pokemon_info_importer.rb'
 require_relative '../lib/pokedex_cli.rb'

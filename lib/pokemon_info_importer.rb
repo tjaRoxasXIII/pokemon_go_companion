@@ -66,13 +66,15 @@ class Importer
         @@responses[1].each do |type|
             weakness = []
             strength = []
+            str_val = []
+            wkns_val = []
             type_name = type[0] 
             type[1].each do |power|
                 if power[1] < 1.0
-                    weakness << power[0]
+                    weakness << power
                 end
                 if power[1] > 1.0
-                    strength << power[0]
+                    strength << power
                 end
             end
             Type.new(type_name, weakness, strength)

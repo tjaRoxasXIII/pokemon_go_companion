@@ -3,7 +3,7 @@ class PokedexCLI
 
     def initialize
         Importer.new
-        puts "  _---_                          _---_  "
+        puts "  _---_                          _---_  ".colorize(:red)
         puts " |--0--|  Pokemon Go Companion  |--0--| "
         puts "  ¯---¯                          ¯---¯  "
         puts "Welcome, Trainer, to the Pokemon Go Companion app!"

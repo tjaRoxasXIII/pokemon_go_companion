@@ -6,6 +6,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    colorize (0.8.1)
     rake (12.3.2)
     require_all (3.0.0)
 
@@ -13,6 +14,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  colorize
   pokemon_go_companion!
   rake (~> 12.0)
   require_all
