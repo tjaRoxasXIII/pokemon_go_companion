@@ -1,6 +1,7 @@
 # PokemonGoCompanion
 
-This app is designed as a companion to the Pokemon Go mobile app.  It can help you learn basic information about specific characters from the game by searching their name, number, or type.  It also provides insight on individual types and their accompanying strengths and weaknesses.
+This app is designed as a companion to the Pokemon Go mobile app.  It can help you learn basic information about specific characters from the game by searching their name, number, or type.  It also provides insight on individual types and their accompanying strengths and weaknesses.  Once you're in the repo, you can use the following command to begin the app:
+``` ruby ./bin/console
 
 ## Installation
 
