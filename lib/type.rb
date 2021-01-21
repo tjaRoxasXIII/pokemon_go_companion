@@ -1,4 +1,4 @@
-# require 'pry'
+require 'pry'
 # require_relative './pokemon_info_importer.rb'
 class Type
 

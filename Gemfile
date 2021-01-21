@@ -6,3 +6,4 @@ gemspec
 gem "rake", "~> 12.0"
 gem "require_all"
 gem "colorize"
+gem "pry"

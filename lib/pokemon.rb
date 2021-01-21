@@ -23,12 +23,7 @@ class Pokemon
     def self.find_by_name
         input = gets.chomp.capitalize
         self.all.find_all {|pokemon| pokemon.name == input}.each do |pokemon|
-            puts "----------------------".colorize(:red)
-            puts "Name: #{pokemon.name}"
-            puts "Pokedex ID: #{pokemon.id}"
-            puts "Type(s): #{pokemon.type}"
-            puts "Form: #{pokemon.form}"
-            puts "----------------------".colorize(:red)
+            info_display(pokemon)
         end
         
     end
@@ -36,27 +31,25 @@ class Pokemon
     def self.find_by_id
         input = gets.chomp.to_i
         self.all.find_all {|pokemon| pokemon.id == input}.each do |pokemon|
-            puts "----------------------".colorize(:red)
-            puts "Name: #{pokemon.name}"
-            puts "Pokedex ID: #{pokemon.id}"
-            puts "Type(s): #{pokemon.type}"
-            puts "Form: #{pokemon.form}"
-            puts "----------------------".colorize(:red)
+            info_display(pokemon)
         end
     end
 
     def self.find_by_type
         input = gets.chomp.capitalize
         self.all.find_all {|pokemon| pokemon.type.include?(input)}.each do |pokemon|
-            puts "----------------------".colorize(:red)
-            puts "Name: #{pokemon.name}"
-            puts "Pokedex ID: #{pokemon.id}"
-            puts "Type(s): #{pokemon.type}"
-            puts "Form: #{pokemon.form}"
-            puts "----------------------".colorize(:red)
+            info_display(pokemon)
         end
 
     end
 
+    def self.info_display(pokemon)
+        puts "----------------------".colorize(:red)
+        puts "Name: #{pokemon.name}"
+        puts "Pokedex ID: #{pokemon.id}"
+        puts "Type(s): #{pokemon.type}"
+        puts "Form: #{pokemon.form}"
+        puts "----------------------".colorize(:red)
+    end
     
 end
